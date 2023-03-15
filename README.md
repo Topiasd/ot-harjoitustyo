@@ -2,7 +2,4 @@
 
 ## Tänään opittiin paljon
 
-### **Git** vaikuttaa olevan *hyödyllinen* työkalu, ja sitä tullaan käyttämään jatkossakin.
-
-
-####### **boldaus ei näy yllä olevassa gitissä**
+### **Git** vaikuttaa olevan *hyödyllinen* työkalu, ja sitä tullaan käyttämään jatkossakin.  **boldaus**
