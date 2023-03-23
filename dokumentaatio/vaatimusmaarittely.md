@@ -1,19 +1,19 @@
-#Vaatimusmaarittely
+#Vaatimusmaarittely#
 Seikkailupeli
-##Lyhyt kuvaus:
+##Lyhyt kuvaus:##
 Pygamella toteutettu peli, jossa voi liikkua ja vaikuttaa ympäristöön mielenkiintoisilla tavoilla
 
-##Ominaisuuksia:
+##Ominaisuuksia:##
 -liikutettava hahmo
 -maailma jossa esteitä
 -kerättäviä asioita
 -vuorovaikutuskykyisiä hahmoja
 -hahmolla kehitettäviä ominaisuuksia/taitoja
 
-##Teema ja yksityiskohdat
+##Teema ja yksityiskohdat##
 Kun alustavat ominaisuudet alkavat olla paikoillaan, pohditaan tarkempaa suuntaa. Scifi,fantasia,mysteeri jne.
 Tarina, pelin lopullinen päämäärä, pistetaulukko(?)
 
-##Tarvittavia toiminnallisuuksia
+##Tarvittavia toiminnallisuuksia##
 Aloitusvalikko, taukovalikko, ohjeet pelaamiseen. Mahdollisuus tallentaa peli, tarkkailla pelin sisäistä dataa.
 
