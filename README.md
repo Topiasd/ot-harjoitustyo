@@ -4,34 +4,37 @@ Aluillaan jonkinlainen point&click seikkailupeli.
 
 
 
+## Asennus
 
-## Komentorivitoiminnot
+1. Riippuvuudet:
+
+poetry install
+
+2. Alustus:
+
+poetry run invoke build
 
 ### Ohjelman suorittaminen
 
-Ohjelman pystyy suorittamaan komennolla:
+Ohjelman käynnistäminen:
 
-```bash
 poetry run invoke start
-```
+
 
 ### Testaus
 
 Testit suoritetaan komennolla:
 
-```bash
 poetry run invoke test
-```
+
 
 ### Testikattavuus
 
 Testikattavuusraportin voi generoida komennolla:
 
-```bash
 poetry run invoke coverage
-```
 
-Raportti generoituu _htmlcov_-hakemistoon.
+Raportti löytyy _htmlcov_-kansiosta.
 
 
 # Linkit
