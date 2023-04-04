@@ -40,7 +40,7 @@ Raportti löytyy _htmlcov_-kansiosta.
 # Linkit
 
 ## Dokumentaatio
-https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md
+https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md
 
 https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md
 
