@@ -8,3 +8,10 @@
 
 -Huono järjestys tiedostoilla/koodilla, tehty tähän hätään vain jotenkin toimivaksi, ja seuraavaksi korjaus.
 
+## VIIKKO 4
+
+-Pylint lisätty ja pientä siivousta
+
+-Koodia ja dataa pilkottu eri tiedostoihin, vielä tekemistä sen suhteen
+
+-Kehitetty koodi alkeellisten tasojen luomista ja käsittelyä varten
