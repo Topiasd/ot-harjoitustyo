@@ -1,9 +1,10 @@
 import pygame
 from sprites import Sprite
 from areas import Map
+from npc import NonPlayer
+from renderer import RenderList
 class Game:
     def __init__(self):
-        self.sprites = []
         self.mouse_x=0
         self.mouse_y=0
         self.destination_x = 0
@@ -15,7 +16,6 @@ class Game:
         pygame.display.set_caption("Adventure(?)")
         self.clock = pygame.time.Clock()
         self.player = Sprite("robo")
-        self.sprites.append(self.player)
         self.map = Map()
         self.loop()
     def loop(self):
@@ -28,8 +28,10 @@ class Game:
         self.triggers = self.map.level[str(self.level[0])+"x"+str(self.level[1])][1]
         for i in area:
                 self.display.blit(i[0],(i[1],i[2]))
-        for i in self.sprites:
-            self.display.blit(i.image,(i.x,i.y))
+        for i in NonPlayer.npc_list:
+            if i.level == self.level:
+                self.display.blit(i.sprite.image,(i.sprite.x,i.sprite.y))
+        self.display.blit(self.player.image,(self.player.x,self.player.y))
         pygame.display.flip()
     def events(self):
         area_change = self.player.area_change(self.triggers)
@@ -66,5 +68,6 @@ class Game:
             self.player.move_sprite((self.mouse_x-25,self.mouse_y-35))
         if self.player.move_player_last:
             self.player.move_sprite((self.destination_x-25,self.destination_y-35))
+        
 if __name__ == "__main__":
     Game()
