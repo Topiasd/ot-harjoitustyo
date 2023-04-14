@@ -1,5 +1,5 @@
 from items import Item
-from renderer import RenderList
+from renderer import Render
 class Inventory:
     def __init__(self,size):
         self.contents = []
@@ -21,4 +21,4 @@ class Inventory:
             return f"Moved {item.name} between inventories"
         return "Not enough space!"
     def drop_stash(self):
-        RenderList.add(self)
+        Render.add(self)

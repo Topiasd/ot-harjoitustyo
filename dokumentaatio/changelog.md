@@ -8,10 +8,12 @@
 
 -Huono järjestys tiedostoilla/koodilla, tehty tähän hätään vain jotenkin toimivaksi, ja seuraavaksi korjaus.
 
-## VIIKKO 4
+## VIIKKO 4 (+pääsiäinen)
 
 -Pylint lisätty ja pientä siivousta
 
--Koodia ja dataa pilkottu eri tiedostoihin, vielä tekemistä sen suhteen
+-Koodia ja dataa pilkottu eri tiedostoihin. Vielä järjestelyä luvassa, mutta tällä hetkellä main näyttää aika hyvältä
 
 -Kehitetty koodi alkeellisten tasojen luomista ja käsittelyä varten
+
+-Tavaroiden hallintaan varten kehitetty luokkia, vielä vaatii työtä, ja näkyvät tulokset vaativat GUI-kehitystä
