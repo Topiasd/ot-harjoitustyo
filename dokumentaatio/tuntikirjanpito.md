@@ -6,3 +6,4 @@
 | 6.4. | 17:00-01:50    | Pylint, pientä siistimistä ja järjestelyä. Koodia tasojen kehittelyä ja toimintaa varten |
 | 13.4.|21:00-00:20    | Luokkasuunnittelua esineiden ja muiden hahmojen käsittelyä varten |
 | 14.4.|21:00-00:00 | Spaghettikoodin selvitystä, main pitkälti siivottu turhasta |
+| 17.4.|23:00-03:00 | Muut oliot ja niihin törmääminen mahdollista. Vaatii graafista suunnittelua, ja jatkokehitystä |

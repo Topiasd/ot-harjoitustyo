@@ -1,7 +1,4 @@
 import pygame
-from sprites import Sprite
-from areas import Map
-from npc import NonPlayer
 from renderer import Render
 from player import Player
 from events import Events
@@ -11,7 +8,7 @@ class Game:
         self.player = Player()
         self.clock = pygame.time.Clock()
         self.map = Render()
-        self.loop()
+        self.loop() 
     def loop(self):
         while True:
             Render.render(self.map)

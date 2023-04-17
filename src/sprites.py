@@ -2,13 +2,14 @@ import os
 import pygame
 class Sprite:
     def __init__(self,name:str):
+        self.name = name
         self.image = pygame.image.load(os.path.join('sprites', (name+".png")))
         self.x = 640-self.image.get_width()
         self.y = 480-self.image.get_height()
         self.dimensions = (self.image.get_width(),self.image.get_height())
         self.speed = 4
-        self.move_player_live = False
-        self.move_player_last = False
+        self.move_live = False
+        self.move_last = False
         self.pos_y_collision = False
         self.pos_x_collision = False
         self.neg_y_collision = False

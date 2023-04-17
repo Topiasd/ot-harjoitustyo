@@ -1,7 +1,6 @@
 class Creator:
     def __init__(self):
         self.map_list = []
-    
     def create(self,level):
         i=1
         j=1
@@ -24,8 +23,7 @@ class Creator:
             level_code.append(layer)
             i += 3
             j = 1
-        return level_code
-    
+        return level_code 
     def map1(self):
         return  self.create([
             "#########",
@@ -35,4 +33,3 @@ class Creator:
             "#XXXX####",
             "#########"
         ])
-
