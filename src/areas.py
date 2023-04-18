@@ -1,19 +1,18 @@
 import os
 import pygame
 from level_creator import Creator
-class Map:
+class Stage:
     def __init__(self):
         self.asset_list = ["grass","road"]
         self.asset_dict = {}
         for i in self.asset_list:
             self.asset_dict[i]=pygame.image.load(os.path.join('assets', (i+".png")))
         self.level = {}
-        map = Creator()
-        map_code = map.map1()
-        for i in range(len(map_code)):
-            for j in range(len(map_code[i])):
-                self.generator((i,j),map_code[i][j])
-
+        stage = Creator()
+        stage_code = stage.stage1()
+        for i in range(len(stage_code)):
+            for j in range(len(stage_code[i])):
+                self.generator((i,j),stage_code[i][j])
     def generator(self,position: tuple,compass: str):
         if compass == "ew":
             triggers = ["e","w"]

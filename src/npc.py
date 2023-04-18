@@ -1,5 +1,4 @@
 from sprites import Sprite
-from inventories import Inventory
 class NonPlayer:
     npc_list = []
     def __init__(self,name,level):
@@ -13,14 +12,12 @@ class NonPlayer:
     def remove_npc(self):
         if self.health<=0:
             NonPlayer.npc_list.remove(self.id)
-            Inventory.drop_stash(self.inventory)
     def npc_actions(player):
         for i in NonPlayer.npc_list:
             NonPlayer.collision_player(i,player)
     def collision_player(self,player):
-        if abs(self.sprite.x-player.player.x)<15 and abs(self.sprite.y-player.player.y)<15:
+        if abs(self.sprite.X-player.player.X)<15 and abs(self.sprite.Y-player.player.Y)<15:
             self.collision = True
         else:
             self.collision = False
-#Placeholder area for adding npcs
 enemy = NonPlayer("monster",[0,0])

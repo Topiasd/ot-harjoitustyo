@@ -45,3 +45,5 @@ https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjan
 https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md
 
 https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md
+
+https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md

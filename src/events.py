@@ -1,24 +1,22 @@
 import pygame
-from renderer import Render
-from player import Player
 from npc import NonPlayer
 class Events:
     mouse_x = 0
     mouse_y = 0
     destination_x = 0
     destination_y = 0
-    def event_queue(player,map):
+    def event_queue(player,stage):
         NonPlayer.npc_actions(player)
-        area_change = player.player.area_change(map.triggers)
-        if area_change != False:
+        area_change = player.player.area_change(stage.triggers)
+        if area_change is not False:
             if area_change == "s":
-                map.level[0]+=1
+                stage.level[0]+=1
             if area_change == "n":
-                map.level[0]-=1
+                stage.level[0]-=1
             if area_change == "e":
-                map.level[1]+=1
+                stage.level[1]+=1
             if area_change == "w":
-                map.level[1]-=1
+                stage.level[1]-=1
         for event in pygame.event.get():
             if event.type == pygame.MOUSEMOTION:
                 Events.mouse_x = event.pos[0]

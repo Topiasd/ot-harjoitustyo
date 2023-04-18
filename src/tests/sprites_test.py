@@ -1,7 +1,5 @@
-import pygame
 import unittest
-
-from main import Sprite
+from sprites import Sprite
 
 
 class TestSprite(unittest.TestCase):

@@ -8,11 +8,11 @@ class Game:
         self.player = Player()
         self.clock = pygame.time.Clock()
         self.map = Render()
-        self.loop() 
+        self.loop()
     def loop(self):
         while True:
             Render.render(self.map)
             Events.event_queue(self.player,self.map)
-            self.clock.tick(60) 
+            self.clock.tick(60)
 if __name__ == "__main__":
     Game()

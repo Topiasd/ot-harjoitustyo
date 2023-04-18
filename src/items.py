@@ -1,6 +1,6 @@
 class Item:
-    def __init__(self,name,type,description,weight):
+    def __init__(self,name,slot,description,weight):
         self.name = name
-        self.type = type
+        self.slot = slot
         self.description = description
         self.weight = weight

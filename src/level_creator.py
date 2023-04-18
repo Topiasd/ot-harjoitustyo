@@ -9,7 +9,7 @@ class Creator:
             layer = []
             while j < len(level[i]):
                 layout = ""
-                if level[i][j] == "X":  
+                if level[i][j] == "X":
                     if level[i][j+1]=="X":
                         layout += "e"
                     if level[i-1][j]=="X":
@@ -24,7 +24,7 @@ class Creator:
             i += 3
             j = 1
         return level_code 
-    def map1(self):
+    def stage1(self):
         return  self.create([
             "#########",
             "#XXXXXXX#",

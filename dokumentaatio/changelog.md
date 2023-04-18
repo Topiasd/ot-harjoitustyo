@@ -17,3 +17,7 @@
 -Kehitetty koodi alkeellisten tasojen luomista ja käsittelyä varten
 
 -Tavaroiden hallintaan varten kehitetty luokkia, vielä vaatii työtä, ja näkyvät tulokset vaativat GUI-kehitystä
+
+-Testi ei enää toimi :( ei testeri ei löydä tarvittavaa kuvaa, enkä kerennyt korjaamaan
+
+-Epäselvä aloitus ja kunnianhimoiset tavoitteet ovat tehneet tästä hankalaa, mutta hommat edistyvät
