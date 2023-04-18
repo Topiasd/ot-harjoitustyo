@@ -1,3 +1,4 @@
+```mermaid
 ---
 title: Vehicle
 ---
@@ -29,3 +30,4 @@ classDiagram
 
     }
 
+```

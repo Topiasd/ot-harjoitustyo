@@ -1,3 +1,4 @@
+```mermaid
 ---
 title: Monopoly
 ---
@@ -134,3 +135,4 @@ classDiagram
         Base rent 400
     }
     
+```

@@ -1,3 +1,4 @@
+```mermaid
 ---
 title: HSL
 ---
@@ -40,4 +41,4 @@ classDiagram
         korttien ja laitteiden määrittely ja hallinnointi
 
     }
-
+```
