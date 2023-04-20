@@ -1,29 +1,30 @@
+import os
+import pygame
 class Creator:
     def __init__(self):
         self.map_list = []
-    def create(self,level):
+    def create(self,level,theme):
         i=1
         j=1
         level_code = []
         while i < len(level):
             layer = []
             while j < len(level[i]):
-                layout = ""
-                if level[i][j] == "X":
-                    if level[i][j+1]=="X":
-                        layout += "e"
-                    if level[i-1][j]=="X":
-                        layout += "n"
-                    if level[i+1][j]=="X":
-                        layout += "s"
-                    if level[i][j-1]=="X":
-                        layout += "w"
+                layout = ["middle"]
+                if level[i][j+1]=="X":
+                    layout.append("e")
+                if level[i-1][j]=="X":
+                    layout.append("n")
+                if level[i+1][j]=="X":
+                    layout.append("s")
+                if level[i][j-1]=="X":
+                    layout.append("w")
                 layer.append(layout)
                 j += 3
             level_code.append(layer)
             i += 3
             j = 1
-        return level_code 
+        return (level_code,theme)
     def stage1(self):
         return  self.create([
             "#########",
@@ -32,4 +33,9 @@ class Creator:
             "#X##X####",
             "#XXXX####",
             "#########"
-        ])
+        ],self.grass())
+    def grass(self):
+        asset_dict = {}
+        asset_dict["background"] = pygame.image.load(os.path.join('assets', ("grass.png")))
+        asset_dict["road"] = pygame.image.load(os.path.join('assets', ("road.png")))
+        return asset_dict
