@@ -21,3 +21,9 @@
 -Testi ei enää toimi :( ei testeri ei löydä tarvittavaa kuvaa, enkä kerennyt korjaamaan
 
 -Epäselvä aloitus ja kunnianhimoiset tavoitteet ovat tehneet tästä hankalaa, mutta hommat edistyvät
+
+## VIIKKO 5
+
+-Tasojen luomiseen käytetty koodi uudistettu (parannattu huomattavasti)
+
+-Koodin siisteyttä paranneltu kaikinpuolin

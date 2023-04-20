@@ -8,7 +8,8 @@
 | 14.4.|21:00-00:00 | Spaghettikoodin selvitystä, main pitkälti siivottu turhasta |
 | 17.4.|23:00-03:00 | Muut oliot ja niihin törmääminen mahdollista. Vaatii graafista suunnittelua, ja jatkokehitystä |
 | 18.4.|20:00-23:30 | Pientä siistimistä, isoimmat sotkut on "keskitetty", ja rakenne vaatii hiomista. Arkkitehtuuria mietitty |
+| 20.4.|18:00-21:30 | Koodia siivottu ja paranneltu, toiminnallisuutta ei juurikaan muutettu |
 
 
 
-yht. 30h 10min
+yht. 33h 40min
