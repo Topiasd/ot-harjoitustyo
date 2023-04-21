@@ -6,7 +6,7 @@ class Events:
         self.mouse_y = 0
         self.destination_x = 0
         self.destination_y = 0
-    def event_queue(self,player,stage):
+    def event_queue(self,player,stage,menus):
         for i in NonPlayer.npc_list:
             i.npc_actions(player)
         area_change = player.area_change(stage.triggers)
@@ -35,11 +35,22 @@ class Events:
                 player.move_last = True
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
+                    menus.close_menu()
                     player.move_last = False
                     player.move_live = False
             if event.type == pygame.QUIT:
                 exit()
-        if player.move_live:
+        
+        if player.move_live and not menus.pause:
             player.move_sprite((self.mouse_x-25,self.mouse_y-35))
-        if player.move_last:
+        if player.move_last and not menus.pause:
             player.move_sprite((self.destination_x-25,self.destination_y-35))
+        for i in stage.buttons:
+            if self.activate(i[1]):
+                menus.activate_menu(i[0])
+    def activate(self,points):
+        horizontal = points[0]-self.destination_x<=0 and points[0]-self.destination_x>=-points[2]
+        vertical = points[1]-self.destination_y<=0 and points[1]-self.destination_y>=-points[3]
+        if horizontal and vertical:
+            return True
+        return False

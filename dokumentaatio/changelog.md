@@ -27,3 +27,5 @@
 -Tasojen luomiseen käytetty koodi uudistettu (parannattu huomattavasti)
 
 -Koodin siisteyttä paranneltu kaikinpuolin
+
+-Erilaisten valikkojen kehittely aloitettu, käyttöliittymä

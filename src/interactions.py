@@ -3,7 +3,7 @@ class Interactions:
     def __init__(self,name,greeting,actions=None):
         self.interaction_dict = {}
         self.name = name
-        self.greeting = greeting
+        self.hey = greeting
         self.actions = actions
         Interactions.interaction_dict[name]=self
-monster = Interactions("monster","Hello")
+monster = Interactions("monster","'Hello'",["Chat","Attack"])

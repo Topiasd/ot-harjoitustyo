@@ -9,7 +9,7 @@
 | 17.4.|23:00-03:00 | Muut oliot ja niihin törmääminen mahdollista. Vaatii graafista suunnittelua, ja jatkokehitystä |
 | 18.4.|20:00-23:30 | Pientä siistimistä, isoimmat sotkut on "keskitetty", ja rakenne vaatii hiomista. Arkkitehtuuria mietitty |
 | 20.4.|18:00-21:30 | Koodia siivottu ja paranneltu, toiminnallisuutta ei juurikaan muutettu |
+| 21.4.|22:00-03:00 | Vuorovaikutusta kehitetty,nappuloita,kohtaamisia,valiokoita |
 
 
-
-yht. 33h 40min
+yht. 38h 40min
