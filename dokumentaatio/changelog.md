@@ -29,3 +29,5 @@
 -Koodin siisteyttä paranneltu kaikinpuolin
 
 -Erilaisten valikkojen kehittely aloitettu, käyttöliittymä
+
+-Testaus hankalaa ja mielikuvituksetonta, mutta koodi siistitty pylint virheistä

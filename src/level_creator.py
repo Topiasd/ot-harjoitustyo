@@ -35,7 +35,8 @@ class Creator:
             "#########"
         ],self.grass())
     def grass(self):
+        assets = os.path.dirname(os.path.abspath(__file__))
         asset_dict = {}
-        asset_dict["background"] = pygame.image.load(os.path.join('assets', ("grass.png")))
-        asset_dict["road"] = pygame.image.load(os.path.join('assets', ("road.png")))
+        asset_dict["background"]=pygame.image.load(os.path.join(assets,'assets','grass.png'))
+        asset_dict["road"]=pygame.image.load(os.path.join(assets,'assets','road.png'))
         return asset_dict

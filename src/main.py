@@ -13,8 +13,9 @@ class Game:
         self.menus = Menu()
         self.loop()
     def loop(self):
+        self.menus.activate_menu("Main menu")
         while True:
-            Render.render(self.map,self.player)
+            Render.render(self.map,self.player,self.menus)
             self.events.event_queue(self.player,self.map,self.menus)
             self.clock.tick(60)
 if __name__ == "__main__":

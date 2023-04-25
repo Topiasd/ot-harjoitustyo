@@ -10,10 +10,6 @@ Aluillaan jonkinlainen point&click seikkailupeli.
 
 poetry install
 
-2. Alustus:
-
-poetry run invoke build
-
 ### Ohjelman suorittaminen
 
 Ohjelman käynnistäminen:
@@ -32,7 +28,7 @@ poetry run invoke test
 
 Testikattavuusraportin voi generoida komennolla:
 
-poetry run invoke coverage
+poetry run invoke coverage-report
 
 Raportti löytyy _htmlcov_-kansiosta.
 

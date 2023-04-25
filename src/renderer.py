@@ -2,7 +2,6 @@ import pygame
 from areas import Stage
 from npc import NonPlayer
 from interactions import Interactions
-from menus import Menu
 class Render:
     def __init__(self):
         self.map = Stage()
@@ -12,12 +11,15 @@ class Render:
         self.display = pygame.display.set_mode((1280, 960))
         self.font = pygame.font.SysFont("Futura", 50)
         pygame.display.set_caption("Adventure(?)")
-    def render(self,player):
+    def render(self,player,menu):
+        if menu.pause is True:
+            self.render_menus(menu)
+            pygame.display.flip()
+            return
         self.render_map()
         self.render_npc()
         self.render_interaction()
         self.render_player(player)
-        self.render_menus()
         pygame.display.flip()
     def render_map(self):
         area = self.map.level[str(self.level[0])+"x"+str(self.level[1])][0]
@@ -27,11 +29,11 @@ class Render:
     def render_npc(self):
         for i in NonPlayer.npc_list:
             if i.level == self.level:
-                self.display.blit(i.sprite.image,(i.sprite.coordinates[0],i.sprite.coordinates[1]))
+                self.display.blit(i.sprite.image,(i.sprite.pos))
     def render_interaction(self):
         self.buttons = []
         for i in NonPlayer.npc_list:
-            if i.collision is True:
+            if i.collision and i.level == self.level:
                 pygame.draw.rect(self.display,(0,0,0), ((430, 790, 420,200)))
                 pygame.draw.rect(self.display,(255,255,255), ((440, 800, 400,150)))
                 name = self.font.render(i.name,True,(0,0,0))
@@ -47,7 +49,10 @@ class Render:
                     self.buttons.append((j,(840-width,800+(30*line),width,30)))
                     line += 1
     def render_player(self,player):
-        self.display.blit(player.image,(player.coordinates[0],player.coordinates[1]))
-    def render_menus(self):
-        if Menu.active_menu is not None:
-            pass
+        self.display.blit(player.image,(player.pos))
+    def render_menus(self,menu):
+        self.display.fill((255,255,255))
+        self.buttons = menu.active_menu["buttons"]
+        for j in menu.active_menu["blits"]:
+            self.display.blit(j[0],j[1])
+            

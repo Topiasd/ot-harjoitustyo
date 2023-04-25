@@ -10,6 +10,6 @@
 | 18.4.|20:00-23:30 | Pientä siistimistä, isoimmat sotkut on "keskitetty", ja rakenne vaatii hiomista. Arkkitehtuuria mietitty |
 | 20.4.|18:00-21:30 | Koodia siivottu ja paranneltu, toiminnallisuutta ei juurikaan muutettu |
 | 21.4.|22:00-03:00 | Vuorovaikutusta kehitetty,nappuloita,kohtaamisia,valiokoita |
+| 25.4.|18:00-22:00 | Valikkojen toimintaa kehitetty. |
 
-
-yht. 38h 40min
+yht. 42h 40min

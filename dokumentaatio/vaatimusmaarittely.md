@@ -6,13 +6,13 @@ Seikkailupeli
 
 Pygamella toteutettu peli, jossa voi liikkua ja vaikuttaa ympäristöön mielenkiintoisilla tavoilla
 
-## Ominaisuuksia:
+## Ominaisuuksia // So far:
 
--liikutettava hahmo
--maailma jossa esteitä
--kerättäviä asioita
--vuorovaikutuskykyisiä hahmoja
--hahmolla kehitettäviä ominaisuuksia/taitoja
+-liikutettava hahmo //Toimii
+-maailma jossa esteitä //Maailman generointi kulkuväylineen
+-kerättäviä asioita 
+-vuorovaikutuskykyisiä hahmoja //Alkeellinen toiminnallisuus
+-hahmolla kehitettäviä ominaisuuksia/taitoja 
 
 ## Teema ja yksityiskohdat
 
@@ -23,3 +23,6 @@ Tarina, pelin lopullinen päämäärä, pistetaulukko(?)
 
 Aloitusvalikko, taukovalikko, ohjeet pelaamiseen. Mahdollisuus tallentaa peli, tarkkailla pelin sisäistä dataa.
 
+Aloitusvaikko OK
+Taukovalikko OK
+Ohjeet OK

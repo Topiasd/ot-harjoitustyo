@@ -15,8 +15,8 @@ class NonPlayer:
     def npc_actions(self,player):
         NonPlayer.collision_player(self,player)
     def collision_player(self,player):
-        x_collision = abs(self.sprite.coordinates[0]-player.coordinates[0])<15
-        y_collision = abs(self.sprite.coordinates[1]-player.coordinates[1])<15
+        x_collision = abs(self.sprite.pos[0]-player.pos[0])<15
+        y_collision = abs(self.sprite.pos[1]-player.pos[1])<15
         if x_collision + y_collision == 2:
             self.collision = True
         else:
