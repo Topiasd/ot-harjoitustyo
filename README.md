@@ -35,6 +35,9 @@ Raportti löytyy _htmlcov_-kansiosta.
 
 # Linkit
 
+## Julkaisut
+https://github.com/Topiasd/ot-harjoitustyo/releases/tag/viikko5
+
 ## Dokumentaatio
 https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md
 
@@ -43,3 +46,4 @@ https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaa
 https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md
 
 https://github.com/Topiasd/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md
+

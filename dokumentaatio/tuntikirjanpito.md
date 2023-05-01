@@ -11,5 +11,6 @@
 | 20.4.|18:00-21:30 | Koodia siivottu ja paranneltu, toiminnallisuutta ei juurikaan muutettu |
 | 21.4.|22:00-03:00 | Vuorovaikutusta kehitetty,nappuloita,kohtaamisia,valiokoita |
 | 25.4.|18:00-22:00 | Valikkojen toimintaa kehitetty. |
+| 1.5.|18:00-00:30 | Valikkojen ja kartan toimintaa muokattu, hahmojen kanssa keskustelu lähestyy valmistumista |
 
-yht. 42h 40min
+yht. 49h 10min

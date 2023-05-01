@@ -1,6 +1,10 @@
-from level_creator import Creator
+import os
+import pygame
 class Stage:
-    def __init__(self):
+    """Tason generointi-koodi. Syötteenä tulee antaa 2d ruudukko, joka koostuu 3x3 paloista. X Merkitsee kulkureittiä,
+    ja jokaisen X:n joka ei ole keskellä, tulee johtaa seuraavan palan X:ään, jotta peli toimii. Teema tulee antaa myös, joka määrittää textuurit.
+    """
+    def __init__(self,layout:list,theme_choice:str):
         self.roads = {}
         self.roads["e"] = []
         self.roads["w"] = []
@@ -10,12 +14,12 @@ class Stage:
         self.blocks()
         self.asset_dict = {}
         self.level = {}
-        stage = Creator()
-        stage_code,stage_theme = stage.stage1()[0],stage.stage1()[1]
+        self.layout = self.create(layout)
+        self.theme = self.theme_init(theme_choice)
         counter = [0,0]
-        for i in stage_code:
+        for i in self.layout:
             for j in i:
-                self.generator(counter,j,stage_theme)
+                self.generator(counter,j,self.theme)
                 counter[1]+=1
             counter[1]=0
             counter[0]+=1
@@ -46,3 +50,33 @@ class Stage:
         for i in range(40,55):
             for j in range(40,55):
                 self.roads["middle"].append((i,j))
+    def create(self,level):
+        i=1
+        j=1
+        level_code = []
+        while i < len(level):
+            layer = []
+            while j < len(level[i]):
+                layout = ["middle"]
+                if level[i][j+1]=="X":
+                    layout.append("e")
+                if level[i-1][j]=="X":
+                    layout.append("n")
+                if level[i+1][j]=="X":
+                    layout.append("s")
+                if level[i][j-1]=="X":
+                    layout.append("w")
+                layer.append(layout)
+                j += 3
+            level_code.append(layer)
+            i += 3
+            j = 1
+        return (level_code)
+    def theme_init(self,name:str):
+        assets = os.path.dirname(os.path.abspath(__file__))
+        background = name+"_background.png"
+        road = name+"_road.png"
+        asset_dict = {}
+        asset_dict["background"]=pygame.image.load(os.path.join(assets,'assets',background))
+        asset_dict["road"]=pygame.image.load(os.path.join(assets,'assets',road))
+        return asset_dict
