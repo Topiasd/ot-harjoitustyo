@@ -6,4 +6,4 @@ class Interactions:
         self.hey = greeting
         self.actions = actions
         Interactions.interaction_dict[name]=self
-monster = Interactions("monster","'Hello'",["Chat","Attack"])
+monster = Interactions("monster","'Hello'",["Attack"])

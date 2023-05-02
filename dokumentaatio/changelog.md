@@ -31,3 +31,12 @@
 -Erilaisten valikkojen kehittely aloitettu, käyttöliittymä
 
 -Testaus hankalaa ja mielikuvituksetonta, mutta koodi siistitty pylint virheistä
+
+## VIIKKO 6
+
+-Tasojen koodia kehitetty entisestään
+
+-valikkoja paranneltu
+
+-testaus korjattu, mutta puutteellinen
+

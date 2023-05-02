@@ -12,5 +12,5 @@
 | 21.4.|22:00-03:00 | Vuorovaikutusta kehitetty,nappuloita,kohtaamisia,valiokoita |
 | 25.4.|18:00-22:00 | Valikkojen toimintaa kehitetty. |
 | 1.5.|18:00-00:30 | Valikkojen ja kartan toimintaa muokattu, hahmojen kanssa keskustelu lähestyy valmistumista |
-
-yht. 49h 10min
+| 2.5.|1100-15:30 | Ongelmia keskustelujärjestelmän kanssa, muutokset peruttu ja suunnitelma muutettu |
+yht. 53h 40min

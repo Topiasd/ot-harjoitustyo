@@ -13,7 +13,6 @@ class Menu:
         self.active_menu["buttons"] = []
         self.battle = False
         self.pause = False
-        self.chat = False
         self.font = pygame.font.SysFont("Futura", 50)
         self.add_all()
         self.activate_menu("Main menu")
@@ -36,10 +35,9 @@ class Menu:
         Args:
             instruction (tuple): lista toiminnoista, ja niiden haluttu sijainti ruudulla
         """
-        if not self.chat:
-            self.active_menu["blits"] = []
-            self.active_menu["buttons"] = []
-            self.line = 0
+        self.active_menu["blits"] = []
+        self.active_menu["buttons"] = []
+        self.line = 0
         pos = instruction[1]
         for j in instruction[0]:
             action = self.font.render(j, True, (0, 0, 0))
