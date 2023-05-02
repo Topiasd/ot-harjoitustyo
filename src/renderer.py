@@ -19,9 +19,12 @@ class Render:
             self.render_map()
             self.render_npc()
             self.render_interaction()
+            self.render_ui()
             self.render_player(player)
         else:
             self.render_menus()
+        if self.menu.inventory is True:
+            self.render_inventory(player)
         if self.menu.battle is True:
             self.render_battle(player,NonPlayer.active_collision)
         pygame.display.flip()
@@ -84,3 +87,19 @@ class Render:
             width = i.get_width()
             self.display.blit(i, (1180-width, 800+(30*line)))
             line += 1
+    def render_inventory(self,player):
+        self.display.fill((255,255,255))
+        line = 0
+        for i in player.inventory.info():
+            text = self.font.render(i, True, (0, 0, 0))
+            width = text.get_width()
+            self.buttons.append((str(i),(0,0+(30*line),width,30)))
+            self.display.blit(text,(0,line*30))
+            line += 1
+    def render_ui(self):
+        text = self.font.render("Inventory", True, (0, 0, 0))
+        width = text.get_width()
+        height = text.get_height()
+        self.buttons.append(("Inventory",(0,0,width,height)))
+        self.display.blit(text,(0,0))
+

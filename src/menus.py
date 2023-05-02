@@ -11,6 +11,7 @@ class Menu:
         self.active_menu = {}
         self.active_menu["blits"] = []
         self.active_menu["buttons"] = []
+        self.inventory = False
         self.battle = False
         self.pause = False
         self.font = pygame.font.SysFont("Futura", 50)
@@ -49,7 +50,6 @@ class Menu:
         self.menus[title]=(options,position)
         self.menu_list.append(title)
     def add_all(self):
-        print ("asd")
         center = (640,480)
         self.add_menu("Main menu",["Start","Tutorial","Quit"],center)
         self.add_menu("Tutorial",["Main menu","Point&Click to move your character",
@@ -57,4 +57,3 @@ class Menu:
         self.add_menu("Attack",["Hit the enemy","Retreat"],center)
         self.add_menu("Pause",["Continue","Tutorial","Main menu"],center)
         self.add_menu("Game over",["Your valiant robot has perished in battle","Main menu"],center)
-        self.add_menu("Chat",["Not quite ready yet"],center)

@@ -61,10 +61,11 @@ class Events:
                 if i[0]=="Retreat":
                     self.menu.battle = False
                     self.menu.pause = False
-                if i[0]=="Chat":
-                    self.menu.chat = True
-                if i[0]=="Leave chat":
-                    self.menu.chat = False
+                if i[0]=="Inventory":
+                    self.menu.inventory = True
+                if i[0]=="Close inventory":
+                    self.menu.pause = False
+                    self.menu.inventory = False
                 if i[0]=="Hit the enemy":
                     NonPlayer.active_collision.health -= (player.damage-NonPlayer.active_collision.armour)
                     player.health -= (NonPlayer.active_collision.damage-player.armour)
@@ -74,6 +75,7 @@ class Events:
                     if player.health <= 0:
                         self.menu.activate_menu("Game over")
                 self.menu.activate_menu(i[0])
+                return
         if not self.menu.pause:
             player.move = True
             player.target = (pos[0]-25,pos[1]-35)

@@ -40,3 +40,6 @@
 
 -testaus korjattu, mutta puutteellinen
 
+## VIIKKO 7
+
+-Esineiden ja inventaarioiden kehitystä

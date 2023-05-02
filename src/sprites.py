@@ -1,5 +1,6 @@
 import os
 import pygame
+from inventories import Inventory
 class Sprite:
     """Koodi spriteille. Mahdollistaa liikkumisen ruudulla, ja pelialueiden välillä
     """
@@ -9,9 +10,10 @@ class Sprite:
         self.image = pygame.image.load(os.path.join(assets,'assets',name+".png"))
         self.pos = [640-self.image.get_width(),480-self.image.get_height()]
         self.dimensions = (self.image.get_width(),self.image.get_height())
+        self.inventory = Inventory(100)
         self.health = 100
-        self.damage = 10
-        self.armour = 5
+        self.damage = self.inventory.damage
+        self.armour = self.inventory.armour
         self.speed = 4
         self.move = False
         self.target = [0,0]
