@@ -5,12 +5,7 @@ class Stage:
     ja jokaisen X:n joka ei ole keskellä, tulee johtaa seuraavan palan X:ään, jotta peli toimii. Teema tulee antaa myös, joka määrittää textuurit.
     """
     def __init__(self,layout:list,theme_choice:str):
-        self.roads = {}
-        self.roads["e"] = []
-        self.roads["w"] = []
-        self.roads["s"] = []
-        self.roads["n"] = []
-        self.roads["middle"] = []
+        self.roads = {"e": [], "w": [], "s": [], "n": [], "middle": []}
         self.blocks()
         self.asset_dict = {}
         self.level = {}

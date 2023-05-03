@@ -54,21 +54,42 @@ class Events:
         """
         for i in stage.buttons:
             if self.activate(i[1],pos):
+                if self.menu.inventory:
+                    if "Close inventory" in i[0]:
+                        self.menu.pause = False
+                        self.menu.inventory = False
+                        return   
+                    player.health += player.inventory.equip(i[0])
+                    if player.health > player.max_health:
+                        player.health = player.max_health
+                if self.menu.exchange:
+                    if "Close inventory" in i[0] or "Scavenge" in i[0] or "Open chest" in i[0]:
+                        self.menu.pause = False
+                        self.menu.exchange = False
+                        return
+                    if "*" in i[0]:
+                        i = i[0].replace("*","")
+                        NonPlayer.active_collision.inventory.exchange(player.inventory,i)
+                        return
+                    player.inventory.exchange(NonPlayer.active_collision.inventory,i[0])
+                if i[0]=="Scavenge" or i[0]=="Open chest":
+                    self.menu.exchange = True
                 if i[0]=="Quit":
                     sys.exit()
                 if i[0]=="Attack":
+                    player.update_stats()
+                    NonPlayer.active_collision.sprite.update_stats()
                     self.menu.battle = True
                 if i[0]=="Retreat":
                     self.menu.battle = False
                     self.menu.pause = False
                 if i[0]=="Inventory":
                     self.menu.inventory = True
-                if i[0]=="Close inventory":
-                    self.menu.pause = False
-                    self.menu.inventory = False
                 if i[0]=="Hit the enemy":
-                    NonPlayer.active_collision.health -= (player.damage-NonPlayer.active_collision.armour)
-                    player.health -= (NonPlayer.active_collision.damage-player.armour)
+                    if player.damage > NonPlayer.active_collision.sprite.armour:
+                        NonPlayer.active_collision.health -= (player.damage-NonPlayer.active_collision.sprite.armour)
+                    if player.armour < NonPlayer.active_collision.sprite.damage:
+                        player.health -= (NonPlayer.active_collision.sprite.damage-player.armour)
                     if NonPlayer.active_collision.health<=0:
                         self.menu.battle = False
                         self.menu.pause = False

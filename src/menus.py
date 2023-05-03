@@ -14,6 +14,7 @@ class Menu:
         self.inventory = False
         self.battle = False
         self.pause = False
+        self.exchange = False
         self.font = pygame.font.SysFont("Futura", 50)
         self.add_all()
         self.activate_menu("Main menu")

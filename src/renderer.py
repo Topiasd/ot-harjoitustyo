@@ -13,6 +13,8 @@ class Render:
         self.buttons = []
         self.display = pygame.display.set_mode((1280, 960))
         self.font = pygame.font.SysFont("Futura", 50)
+        self.inventory_font = pygame.font.SysFont("Futura", 25)
+        self.interaction_font = pygame.font.SysFont("Futura", 25)
         pygame.display.set_caption("Adventure(?)")
     def render(self,player):
         if self.menu.pause is False:
@@ -27,6 +29,9 @@ class Render:
             self.render_inventory(player)
         if self.menu.battle is True:
             self.render_battle(player,NonPlayer.active_collision)
+        if self.menu.exchange is True:
+            self.render_inventory(player)
+            self.render_ext_inventory(NonPlayer.active_collision)
         pygame.display.flip()
     def render_map(self):
         """Nykyisen tason rakennuspalikat renderöidään ensimmäiseksi, ja tason mukana tulee koodi joka kertoo milloin taso
@@ -37,19 +42,17 @@ class Render:
             self.display.blit(i[0],(i[1],i[2]))
     def render_npc(self):
         for i in NonPlayer.npc_list:
-            if i.level == self.level:
+            if i.sprite.level == self.level:
                 self.display.blit(i.sprite.image,(i.sprite.pos))
     def render_interaction(self):
         self.buttons = []
         for i in NonPlayer.npc_list:
-            if i.collision and i.level == self.level:
+            if i.collision:
                 pygame.draw.rect(self.display,(0,0,0), ((430, 790, 420,200)))
                 pygame.draw.rect(self.display,(255,255,255), ((440, 800, 400,150)))
-                name = self.font.render(i.name,True,(0,0,0))
-                hey = self.font.render(Interactions.interaction_dict[i.name].hey,True,(0,0,0))
+                hey = self.interaction_font.render(Interactions.interaction_dict[i.name].hey,True,(0,0,0))
                 self.display.blit(hey,(440,920))
-                self.display.blit(i.sprite.image,(440,800))
-                self.display.blit(name, (500, 800))
+                self.display.blit(i.sprite.image,(450,810))
                 line = 0
                 for j in Interactions.interaction_dict[i.name].actions:
                     action = self.font.render(j, True, (0, 0, 0))
@@ -69,8 +72,8 @@ class Render:
         self.display.blit(enemy.sprite.image,(900,800))
         enemy_name = self.font.render(enemy.name, True, (0, 0, 0))
         enemy_health = self.font.render("Health "+str(enemy.health), True, (0, 0, 0))
-        enemy_damage = self.font.render("Damage "+str(enemy.damage), True, (0, 0, 0))
-        enemy_armour = self.font.render("Armour "+str(enemy.armour), True, (0, 0, 0))
+        enemy_damage = self.font.render("Damage "+str(enemy.sprite.damage), True, (0, 0, 0))
+        enemy_armour = self.font.render("Armour "+str(enemy.sprite.armour), True, (0, 0, 0))
         enemy_stats = [enemy_name,enemy_health,enemy_damage,enemy_armour]
         player_name = self.font.render(player.name, True, (0, 0, 0))
         player_health = self.font.render("Health "+str(player.health), True, (0, 0, 0))
@@ -88,18 +91,37 @@ class Render:
             self.display.blit(i, (1180-width, 800+(30*line)))
             line += 1
     def render_inventory(self,player):
-        self.display.fill((255,255,255))
+        height = len(player.inventory.info())
+        pygame.draw.rect(self.display,(0,0,0), ((0, 0, 510,30*height+10)))
+        pygame.draw.rect(self.display,(255,255,255), ((10, 10, 490,30*height-10)))
         line = 0
         for i in player.inventory.info():
-            text = self.font.render(i, True, (0, 0, 0))
+            text = self.inventory_font.render(i, True, (0, 0, 0))
             width = text.get_width()
-            self.buttons.append((str(i),(0,0+(30*line),width,30)))
-            self.display.blit(text,(0,line*30))
+            self.buttons.append((str(i),(10,10+(30*line),width,30)))
+            self.display.blit(text,(10,line*30+10))
             line += 1
     def render_ui(self):
+        pygame.draw.rect(self.display,(0,0,0), ((0, 0, 180,60)))
+        pygame.draw.rect(self.display,(255,255,255), ((10, 10, 160,40)))
         text = self.font.render("Inventory", True, (0, 0, 0))
-        width = text.get_width()
-        height = text.get_height()
-        self.buttons.append(("Inventory",(0,0,width,height)))
-        self.display.blit(text,(0,0))
-
+        self.buttons.append(("Inventory",(10,10,180,60)))
+        self.display.blit(text,(10,10))
+    def render_ext_inventory(self,container):
+        info = []
+        for i in container.inventory.info():
+                if "items" in i:
+                    continue
+                if "Carrying" in i:
+                    continue
+                info.append(i)
+        height = len(info)
+        pygame.draw.rect(self.display,(0,0,0), ((780, 0, 710,30*height+10)))
+        pygame.draw.rect(self.display,(255,255,255), ((790, 10, 480,30*height-10)))
+        line = 0
+        for i in info:
+                text = self.inventory_font.render(i, True, (0, 0, 0))
+                width = text.get_width()
+                self.buttons.append(((str(i)+"*"),(1270-width,10+(30*line),width,30)))
+                self.display.blit(text,(1270-width,line*30+10))
+                line += 1

@@ -4,19 +4,28 @@ from inventories import Inventory
 class Sprite:
     """Koodi spriteille. Mahdollistaa liikkumisen ruudulla, ja pelialueiden välillä
     """
-    def __init__(self,name:str):
+    def __init__(self,name:str,items:list=False,pos=False,level=[0,0]):
         assets = os.path.dirname(os.path.abspath(__file__))
         self.name = name
         self.image = pygame.image.load(os.path.join(assets,'assets',name+".png"))
-        self.pos = [640-self.image.get_width(),480-self.image.get_height()]
+        self.pos = pos
+        if not pos:
+            self.pos = [640-self.image.get_width(),480-self.image.get_height()]
         self.dimensions = (self.image.get_width(),self.image.get_height())
         self.inventory = Inventory(100)
+        if items:
+            for i in items:
+                self.inventory.add_item(str(i))
+        self.max_health = 100
         self.health = 100
-        self.damage = self.inventory.damage
-        self.armour = self.inventory.armour
+        self.damage = 0
+        self.armour = 0
         self.speed = 4
         self.move = False
         self.target = [0,0]
+        self.level = level
+        self.base_damage = 1
+        self.base_armour = 1
     def move_sprite(self):
         if self.move is False:
             return
@@ -44,15 +53,22 @@ class Sprite:
         if self.pos[0] >500 and self.pos[0]<650:
             if self.pos[1] >850 and "s" in triggers:
                 self.pos[1] =60
+                self.level[0]+=1
                 return "s"
             if self.pos[1] <50 and "n" in triggers:
                 self.pos[1]=840
+                self.level[0]-=1
                 return "n"
         if self.pos[1] >350 and self.pos[1]<500:
             if self.pos[0]>1200 and "e" in triggers:
                 self.pos[0] = 50
+                self.level[1]+=1
                 return "e"
             if self.pos[0] <40 and "w" in triggers:
                 self.pos[0] = 1190
+                self.level[1]-=1
                 return "w"
         return False
+    def update_stats(self):
+        self.damage = self.inventory.damage + self.base_damage
+        self.armour = self.inventory.armour + self.base_armour

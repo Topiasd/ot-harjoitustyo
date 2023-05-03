@@ -14,4 +14,5 @@
 | 1.5.|18:00-00:30 | Valikkojen ja kartan toimintaa muokattu, hahmojen kanssa keskustelu lähestyy valmistumista |
 | 2.5.|1100-15:30 | Ongelmia keskustelujärjestelmän kanssa, muutokset peruttu ja suunnitelma muutettu |
 | 3.5.|0000-01:55 | Item/inventory järjestelmiä kehitetty |
-yht. 55h 35min
+| 3.5.|1700-00:30 | Item/inventory kehitetty rutkasti |
+yht. 63h 5min

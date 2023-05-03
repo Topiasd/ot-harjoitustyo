@@ -1,4 +1,5 @@
 import pygame
+import entities
 from renderer import Render
 from sprites import Sprite
 from events import Events
