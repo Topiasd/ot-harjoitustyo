@@ -15,4 +15,5 @@
 | 2.5.|1100-15:30 | Ongelmia keskustelujärjestelmän kanssa, muutokset peruttu ja suunnitelma muutettu |
 | 3.5.|0000-01:55 | Item/inventory järjestelmiä kehitetty |
 | 3.5.|1700-00:30 | Item/inventory kehitetty rutkasti |
-yht. 63h 5min
+| 4.5.|2230-00:30 | Tallentaminen/lataaminen lisätty |
+yht. 65h 5min

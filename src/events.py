@@ -1,6 +1,7 @@
 import sys
 import pygame
 from npc import NonPlayer
+from savefiles import SaveFiles
 class Events:
     """Tapahtumat (hiiren painallukset) ja niistä seuraavat tilannemuutokset löytyvät täältä
     """
@@ -85,6 +86,11 @@ class Events:
                     self.menu.pause = False
                 if i[0]=="Inventory":
                     self.menu.inventory = True
+                if i[0]=="Save game":
+                    SaveFiles.write_save(player.data(),player.inventory.data())
+                if i[0]=="Load save":
+                    data = SaveFiles.load_save(player.name)
+                    player.load_player(data)
                 if i[0]=="Hit the enemy":
                     if player.damage > NonPlayer.active_collision.sprite.armour:
                         NonPlayer.active_collision.health -= (player.damage-NonPlayer.active_collision.sprite.armour)

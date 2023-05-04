@@ -1,0 +1,1 @@
+{"name": "robo", "max_health": 100, "health": 100, "speed": 4, "base_damage": 1, "base_armour": 1, "equiped": ["None", "Iron dagger: Power[20] Slot[Left hand] Weight[5]", "None", "None", "None", "None", "None"], "contents": ["Iron dagger: Power[20] Slot[Left hand] Weight[5]", "Health potion: Power[50] Slot[Consumable] Weight[1]"], "size": 100}

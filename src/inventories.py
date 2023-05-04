@@ -73,3 +73,17 @@ class Inventory:
         return text_list
     def gap(self,width):
         return " "*width
+    def data(self):
+        data = {"equiped":[],"contents":[],"size":self.size}
+        for i in self.equiped:
+            data["equiped"].append(str(self.equiped[i]))
+        for i in self.contents:
+            data["contents"].append(str(i))
+        return data
+    def load_inventory(self,data:dict):
+        self.size = data["size"]
+        for i in data["contents"]:
+            self.add_item(i)
+        for i in data["equiped"]:
+            self.equip(i)
+        

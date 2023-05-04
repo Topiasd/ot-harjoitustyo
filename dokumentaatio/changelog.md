@@ -43,3 +43,5 @@
 ## VIIKKO 7
 
 -Esineiden ja inventaarioiden kehitystä
+
+-Hahmon tallentaminen mahdollistettu, pelimekaniikkana hiottavaa

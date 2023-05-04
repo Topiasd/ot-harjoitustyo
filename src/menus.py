@@ -52,9 +52,9 @@ class Menu:
         self.menu_list.append(title)
     def add_all(self):
         center = (640,480)
-        self.add_menu("Main menu",["Start","Tutorial","Quit"],center)
+        self.add_menu("Main menu",["Start","Load save","Tutorial","Quit"],center)
         self.add_menu("Tutorial",["Main menu","Point&Click to move your character",
         "Approach other characters or objects to interact"],center)
         self.add_menu("Attack",["Hit the enemy","Retreat"],center)
-        self.add_menu("Pause",["Continue","Tutorial","Main menu"],center)
+        self.add_menu("Pause",["Continue","Save game","Tutorial","Main menu"],center)
         self.add_menu("Game over",["Your valiant robot has perished in battle","Main menu"],center)

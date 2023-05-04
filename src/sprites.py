@@ -72,3 +72,19 @@ class Sprite:
     def update_stats(self):
         self.damage = self.inventory.damage + self.base_damage
         self.armour = self.inventory.armour + self.base_armour
+    def data(self):
+        data = {"name":self.name,
+                "max_health":self.max_health,
+                "health":self.health,
+                "speed":self.speed,
+                "base_damage":self.base_damage,
+                "base_armour":self.base_armour}
+        return data
+    def load_player(self,data):
+        print (data["name"])
+        self.name = data["name"]
+        self.max_health = data["max_health"]
+        self.speed = data["speed"]
+        self.base_damage = data["base_damage"]
+        self.base_armour = data["base_armour"]
+        self.inventory.load_inventory(data)
