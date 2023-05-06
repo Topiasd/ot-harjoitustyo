@@ -8,13 +8,17 @@ class Inventory:
         self.equiped = {"Head":None,"Left hand":None,"Right hand":None,"Feet":None,"Body":None,"Arms":None,"Consumable":None}
         self.armour = 0
         self.damage = 0
-    def add_item(self,item_info):
+    def add_item(self,item_info,take=False):
         item = Inventory.global_items[item_info]
+        if item.slot == "Active":
+            self.contents.append(item)
+            self.contents.sort(key=lambda x: x.name, reverse=True)
+            return
         if item.weight + self.total <= self.size:
             self.contents.append(item)
             self.contents.sort(key=lambda x: x.name, reverse=True)
             self.total += item.weight
-            if self.equiped[item.slot]==None and item.slot is not "Consumable":
+            if self.equiped[item.slot]==None and item.slot is not "Consumable" and take:
                 self.equip(str(item))
             return f"Moved {item.name} to inventory"
         return "You are unable to carry more!"
@@ -23,10 +27,10 @@ class Inventory:
         self.contents.remove(item)
         self.total -= item.weight
         return f"Removed {item.name} from inventory"
-    def exchange(self,inventory,item_info):
+    def exchange(self,inventory,item_info,take=False):
         item = Inventory.global_items[item_info]
         if inventory.total + item.weight <= inventory.size:
-            inventory.add_item(str(item))
+            inventory.add_item(str(item),take)
             self.remove_item(str(item))
             return (f"Moved {item.name} between inventories")
         return "Not enough space!"
@@ -48,6 +52,8 @@ class Inventory:
         if item_info not in Inventory.global_items:
             return 0
         item = Inventory.global_items[item_info]
+        if item.slot == "Active":
+            return item.activate_item()
         if item.slot == "Consumable":
             self.remove_item(str(item))
             return item.power
@@ -86,4 +92,3 @@ class Inventory:
             self.add_item(i)
         for i in data["equiped"]:
             self.equip(i)
-        

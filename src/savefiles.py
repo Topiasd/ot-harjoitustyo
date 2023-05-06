@@ -19,7 +19,6 @@ class SaveFiles:
         save_collection = os.path.join(saves,'save_data',"save_list.json")
         with open(save_collection)as file:
             data = json.load(file)
-            print (data)
         if name in data:
             data.remove(name)
         data.remove("Main menu")
@@ -28,3 +27,9 @@ class SaveFiles:
         updated_data.append("Main menu")
         with open(save_collection,"w")as file:
             json.dump(updated_data, file)
+    def save_list():
+        saves = os.path.dirname(os.path.abspath(__file__))
+        save_collection = os.path.join(saves,'save_data',"save_list.json")
+        with open(save_collection)as file:
+            data = json.load(file)
+        return data

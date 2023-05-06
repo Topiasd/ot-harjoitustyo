@@ -4,10 +4,15 @@ from inventories import Inventory
 class Sprite:
     """Koodi spriteille. Mahdollistaa liikkumisen ruudulla, ja pelialueiden välillä
     """
-    def __init__(self,name:str,items:list=False,pos=False,level=[0,0]):
-        assets = os.path.dirname(os.path.abspath(__file__))
+    def __init__(self,name:str,species=None,items:list=False,pos=False,level=[0,0]):
+        self.assets = os.path.dirname(os.path.abspath(__file__))
         self.name = name
-        self.image = pygame.image.load(os.path.join(assets,'assets',name+".png"))
+        if species:
+            self.image = pygame.image.load(os.path.join(self.assets,'assets',species+".png"))
+            self.species = species
+        else:
+            self.image = pygame.image.load(os.path.join(self.assets,'assets',name+".png"))
+            self.species = name
         self.pos = pos
         if not pos:
             self.pos = [640-self.image.get_width(),480-self.image.get_height()]
@@ -15,12 +20,12 @@ class Sprite:
         self.inventory = Inventory(100)
         if items:
             for i in items:
-                self.inventory.add_item(str(i))
+                self.inventory.add_item(str(i),True)
         self.max_health = 100
         self.health = 100
         self.damage = 0
         self.armour = 0
-        self.speed = 4
+        self.speed = 10
         self.move = False
         self.target = [0,0]
         self.level = level
@@ -78,13 +83,19 @@ class Sprite:
                 "health":self.health,
                 "speed":self.speed,
                 "base_damage":self.base_damage,
-                "base_armour":self.base_armour}
+                "base_armour":self.base_armour,
+                "species":self.species}
         return data
     def load_player(self,data):
-        print (data["name"])
         self.name = data["name"]
         self.max_health = data["max_health"]
         self.speed = data["speed"]
         self.base_damage = data["base_damage"]
         self.base_armour = data["base_armour"]
+        self.species = data["species"]
         self.inventory.load_inventory(data)
+        self.update_image(data["species"])
+    def update_image(self,species):
+        self.species = species
+        self.image = pygame.image.load(os.path.join(self.assets,'assets',species+".png"))
+        self.dimensions = (self.image.get_width(),self.image.get_height())

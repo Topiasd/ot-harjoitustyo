@@ -15,5 +15,6 @@
 | 2.5.|1100-15:30 | Ongelmia keskustelujärjestelmän kanssa, muutokset peruttu ja suunnitelma muutettu |
 | 3.5.|0000-01:55 | Item/inventory järjestelmiä kehitetty |
 | 3.5.|1700-00:30 | Item/inventory kehitetty rutkasti |
-| 4.5.|2230-00:30 | Tallentaminen/lataaminen lisätty |
-yht. 65h 5min
+| 4.5.|2230-03:50 | Tallentaminen/lataaminen lisätty |
+| 5.5.|2000-03:30 | Tasojen satunnainen generointi, tallentamista/lataamista kehitetty |
+yht. 75h 55min

@@ -4,19 +4,19 @@ class NonPlayer:
     """
     npc_list = []
     active_collision = None
-    def __init__(self,name,level,items,pos=False):
+    def __init__(self,name,species,level,items,pos=False):
         NonPlayer.npc_list.append(self)
         self.name = name
         self.health = 100
         self.mood = 100
-        self.sprite = Sprite(name,items,pos,level)
+        self.sprite = Sprite(name,species,items,pos,level)
         self.collision = False
         self.lootname = name+"loot"
         self.inventory = self.sprite.inventory
     def remove_npc(self):
         if self.health<=0:
             self.name = self.lootname
-            self.sprite = Sprite("lootbag")
+            self.sprite.update_image("lootbag")
     def npc_actions(self,player):
         """Tähän tulee kaikki eri tekoälyn toiminta, tällä hetkellä vain kollision tarkistus
         Args:

@@ -45,3 +45,5 @@
 -Esineiden ja inventaarioiden kehitystä
 
 -Hahmon tallentaminen mahdollistettu, pelimekaniikkana hiottavaa
+
+-Satunnaisia tasoja generoiva koodi tehty

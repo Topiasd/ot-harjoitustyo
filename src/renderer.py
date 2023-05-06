@@ -36,8 +36,12 @@ class Render:
     def render_map(self):
         """Nykyisen tason rakennuspalikat renderöidään ensimmäiseksi, ja tason mukana tulee koodi joka kertoo milloin taso
         """
-        area = self.map.level[str(self.level[0])+"x"+str(self.level[1])][0]
-        self.triggers = self.map.level[str(self.level[0])+"x"+str(self.level[1])][1]
+        new_level = str(self.level[0])+"x"+str(self.level[1])
+        self.map.visited.add(new_level)
+        if new_level not in self.map.level:
+            self.map.random_generator(new_level)
+        area = self.map.level[new_level][0]  
+        self.triggers = self.map.level[new_level][1]
         for i in area:
             self.display.blit(i[0],(i[1],i[2]))
     def render_npc(self):
