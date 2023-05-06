@@ -1,6 +1,5 @@
-from items import Item
 class Inventory:
-    global_items = Item.all_items
+    global_items={}
     def __init__(self,size):
         self.contents = []
         self.size = size
@@ -24,9 +23,10 @@ class Inventory:
         return "You are unable to carry more!"
     def remove_item(self,item_info):
         item = Inventory.global_items[item_info]
-        self.contents.remove(item)
-        self.total -= item.weight
-        return f"Removed {item.name} from inventory"
+        if item in self.contents:
+            self.contents.remove(item)
+            self.total -= item.weight
+            return f"Removed {item.name} from inventory"
     def exchange(self,inventory,item_info,take=False):
         item = Inventory.global_items[item_info]
         if inventory.total + item.weight <= inventory.size:

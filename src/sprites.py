@@ -25,7 +25,7 @@ class Sprite:
         self.health = 100
         self.damage = 0
         self.armour = 0
-        self.speed = 10
+        self.speed = 4
         self.move = False
         self.target = [0,0]
         self.level = level

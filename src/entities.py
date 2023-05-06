@@ -1,7 +1,7 @@
 from npc import NonPlayer
 from items import Item
 from interactions import Interactions
-
+from inventories import Inventory
 class Entities:
     def populate(player):
         NonPlayer.active_collision = None
@@ -12,6 +12,9 @@ class Entities:
         iron_sword = Item("Iron sword","Right hand","A meager weapon",5,"Weapon",30)
         wood_bucket = Item("Wooden bucket","Head","Unfashionable",10,"Armour",2)
         health_potion = Item("Health potion","Consumable","Feels better than it tastes",1,"Healing item",50)
+        item_list = [soul_stone,iron_dagger,iron_sword,wood_bucket,health_potion]
+        for i in item_list:
+            Inventory.global_items[str(i)]=i
         #monsters
         monster = NonPlayer("monster",None,[1,0],[iron_sword])
         chest = NonPlayer("chest",None,[0,0],[iron_dagger,health_potion],[300,300])

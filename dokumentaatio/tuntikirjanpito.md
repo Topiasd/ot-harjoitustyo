@@ -12,9 +12,10 @@
 | 21.4.|22:00-03:00 | Vuorovaikutusta kehitetty,nappuloita,kohtaamisia,valiokoita |
 | 25.4.|18:00-22:00 | Valikkojen toimintaa kehitetty. |
 | 1.5.|18:00-00:30 | Valikkojen ja kartan toimintaa muokattu, hahmojen kanssa keskustelu lähestyy valmistumista |
-| 2.5.|1100-15:30 | Ongelmia keskustelujärjestelmän kanssa, muutokset peruttu ja suunnitelma muutettu |
-| 3.5.|0000-01:55 | Item/inventory järjestelmiä kehitetty |
-| 3.5.|1700-00:30 | Item/inventory kehitetty rutkasti |
-| 4.5.|2230-03:50 | Tallentaminen/lataaminen lisätty |
-| 5.5.|2000-03:30 | Tasojen satunnainen generointi, tallentamista/lataamista kehitetty |
-yht. 75h 55min
+| 2.5.|11:00-15:30 | Ongelmia keskustelujärjestelmän kanssa, muutokset peruttu ja suunnitelma muutettu |
+| 3.5.|00:00-01:55 | Item/inventory järjestelmiä kehitetty |
+| 3.5.|17:00-00:30 | Item/inventory kehitetty rutkasti |
+| 4.5.|22:30-03:50 | Tallentaminen/lataaminen lisätty |
+| 5.5.|20:00-03:30 | Tasojen satunnainen generointi, tallentamista/lataamista kehitetty |
+| 6.5.|17:30-18:45 | Pientä visuaalista kehitystä, mm. dynaaminen hp mittari  |
+yht. 77h 10min

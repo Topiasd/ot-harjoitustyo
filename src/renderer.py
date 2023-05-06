@@ -2,6 +2,7 @@ import pygame
 from areas import Stage
 from npc import NonPlayer
 from interactions import Interactions
+from textbox import Blits
 class Render:
     """Kaikki mitä ruudulle ilmestyy, kulkee tämän luokan kautta. Eri tilanteille on erilaiset säännöt.
     """
@@ -21,13 +22,14 @@ class Render:
             self.render_map()
             self.render_npc()
             self.render_interaction()
-            self.render_ui()
+            self.render_ui(player)
             self.render_player(player)
         else:
             self.render_menus()
         if self.menu.inventory is True:
             self.render_inventory(player)
         if self.menu.battle is True:
+            self.render_ui(player)
             self.render_battle(player,NonPlayer.active_collision)
         if self.menu.exchange is True:
             self.render_inventory(player)
@@ -105,12 +107,17 @@ class Render:
             self.buttons.append((str(i),(10,10+(30*line),width,30)))
             self.display.blit(text,(10,line*30+10))
             line += 1
-    def render_ui(self):
-        pygame.draw.rect(self.display,(0,0,0), ((0, 0, 180,60)))
-        pygame.draw.rect(self.display,(255,255,255), ((10, 10, 160,40)))
-        text = self.font.render("Inventory", True, (0, 0, 0))
-        self.buttons.append(("Inventory",(10,10,180,60)))
-        self.display.blit(text,(10,10))
+    def render_ui(self,player):
+        inst = Blits.button_blit("Inventory",(0,0),110,40,25)
+        for i in inst["rectangle"]:
+            pygame.draw.rect(self.display,i[0],i[1])
+        for i in inst["button"]:
+            self.buttons.append(i)
+        for i in inst["text"]:
+            self.display.blit(i[0],i[1])
+        pygame.draw.rect(self.display,(0,0,0), ((0, 940, 180,60)))
+        pygame.draw.rect(self.display,(255,255,255), ((10, 945, 160,10)))
+        pygame.draw.rect(self.display,(255,64,64), ((10, 945,160*player.health//player.max_health,10)))
     def render_ext_inventory(self,container):
         info = []
         for i in container.inventory.info():
