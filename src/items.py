@@ -1,19 +1,19 @@
+from inventories import Inventory
 class Item:
-    all_items = {}
-    def __init__(self,name,slot,description,weight,item_type,power,active=None):
+    """Esineet ja niiden ominaisuudet
+    """
+    item_list = {}
+    def __init__(self,name,slot,weight,item_type,power,value=0):
         self.name = name
         self.slot = slot
-        self.description = description
         self.weight = weight
         self.item_type = item_type
         self.power = power
-        self.active = active
-        Item.all_items[str(self)]=self
-    def activate_item(self):
-        if self.power >0:
-            self.power -= 1
-            return self.active
-        return False
+        self.value = value
+        Inventory.all_items(self)
     def __str__(self):
+        if self.slot == "Active":
+            if self.power == 1:
+                return f"{self.name} [CHARGED]"
+            return f"{self.name} [DORMANT]"
         return f"{self.name}: Power[{self.power}] Slot[{self.slot}] Weight[{self.weight}]"
-

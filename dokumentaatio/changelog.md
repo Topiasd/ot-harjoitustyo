@@ -47,3 +47,15 @@
 -Hahmon tallentaminen mahdollistettu, pelimekaniikkana hiottavaa
 
 -Satunnaisia tasoja generoiva koodi tehty
+
+## VIIKKO 8
+
+-Hahmon luonti
+
+-Hahmojen ja esineiden satunnaisluonti kehitetty
+
+-Tallennus ja lataaminen integroitu pelimekaniikkana
+
+-Tason vaihto tallennuksen yhteydessä
+
+-Pelissä on tietynlainen luuppi, jossa satunnaisesti luodut vastustajat vahvenevat pelin edetessä.

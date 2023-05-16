@@ -1,19 +1,30 @@
 import os
 import pygame
 from random import choice
+from npc import NonPlayer
+from interactions import Interactions
 class Stage:
     """Tason generointi-koodi. Syötteenä tulee antaa 2d ruudukko, joka koostuu 3x3 paloista. X Merkitsee kulkureittiä,
     ja jokaisen X:n joka ei ole keskellä, tulee johtaa seuraavan palan X:ään, jotta peli toimii. Teema tulee antaa myös, joka määrittää textuurit.
+    Ilman syötettä, tai kun valmiit palat loppuvat, tasot generoituvat automaattisesti.
     """
-    def __init__(self,layout:list,theme_choice:str):
+    def __init__(self,name="Boss",progress=0,layout=None,theme_choice="meadow",limit=15):
         self.roads = {"e": [], "w": [], "s": [], "n": [], "middle": []}
         self.visited = set([])
         self.max_size = 0
         self.blocks()
         self.asset_dict = {}
         self.level = {}
-        self.layout = self.create(layout)
+        if layout:
+            self.layout = self.create(layout)
+        else:
+            self.max_size +=4
+            self.layout = [[["middle","n","s","w","e"]]]
+        self.progress = progress
         self.theme = self.theme_init(theme_choice)
+        self.limit = max(limit,progress*5)
+        self.boss = False
+        self.name = name
         self.start_generator()
     def start_generator(self):
         counter = [0,0]
@@ -105,13 +116,31 @@ class Stage:
                 new_level.append(directions[i])
                 continue
             if lanes[i]=="Free" and self.coin_toss():
+                lanes[i]==True
                 self.max_size+=1
                 new_level.append(directions[i])
-        while len(new_level)<3:
+        while len(new_level)<3 and self.max_size<self.limit:
             for i in lanes:
                 if lanes[i]=="Free" and self.coin_toss():
+                    lanes[i]==True
                     self.max_size+=1
                     new_level.append(directions[i])
-        self.generator([y,x],new_level,self.theme,True)
-        print (len(self.visited))
-        print (self.max_size)
+        distance = max(abs(int(y)),abs(int(x)))
+        self.generator([int(y),int(x)],new_level,self.theme,True)
+        if self.boss == False:
+            if len(self.visited)>=self.limit or self.visited==self.max_size:
+                self.boss = True
+                self.spawn_boss([int(y),int(x)],distance)
+                return
+        if len(self.visited)>1:
+            self.spawn_npc([int(y),int(x)],distance+1)
+    def spawn_boss(self,pos,distance):
+        species = choice(["monster","robo","goblin"])
+        if self.name not in Interactions.interaction_dict:
+            boss =Interactions(self.name,"'The soul stone burns in your pocket'",["Attack"])
+            boss_corpse =Interactions(self.name+"loot","'A Soul ripe for harvest'",["Scavenge","Absorb soul"])
+        NonPlayer(self.name,species,pos,distance*((self.progress+1)*2),False,False,True)
+    def spawn_npc(self,pos,distance):
+        species = choice(["monster","robo","chest","goblin"])
+        container = species=="chest"
+        NonPlayer(species,species,pos,distance*(self.progress+1),False,container)

@@ -18,4 +18,10 @@
 | 4.5.|22:30-03:50 | Tallentaminen/lataaminen lisätty |
 | 5.5.|20:00-03:30 | Tasojen satunnainen generointi, tallentamista/lataamista kehitetty |
 | 6.5.|17:30-18:45 | Pientä visuaalista kehitystä, mm. dynaaminen hp mittari  |
-yht. 77h 10min
+| 8.5.|17:00-23:00 | Satunnaisten vihollisten luonti  |
+| 9.5.|18:00-01:00 | Satunnaisten esineiden luonti. Hankalia bugeja :(  |
+| 10.5.|16:00-21:00 | Pelin tallennus/lataaminen integroitu peliin. Gameplay loop tehty.  |
+| 12.5.|13:00-16:00 | Testejä laajennettu,korjattu,muutettu  |
+
+
+yht. 98h 10min

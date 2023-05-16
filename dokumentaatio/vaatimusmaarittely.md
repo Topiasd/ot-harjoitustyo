@@ -1,28 +1,28 @@
 # Vaatimusmaarittely
 
-Seikkailupeli
+A Little Soul Searching
 
 ## Lyhyt kuvaus:
 
-Pygamella toteutettu peli, jossa voi liikkua ja vaikuttaa ympäristöön mielenkiintoisilla tavoilla
+Pygamella toteutettu peli, joka satunnaisesti generoi tasoja, vastustajia, ja kerättäviä esineitä.
 
 ## Ominaisuuksia // So far:
 
--liikutettava hahmo //Toimii
--maailma jossa esteitä //Maailman generointi kulkuväylineen
--kerättäviä asioita 
--vuorovaikutuskykyisiä hahmoja //Alkeellinen toiminnallisuus
--hahmolla kehitettäviä ominaisuuksia/taitoja 
+-liikutettava hahmo
+-hahmolle voi valita nimen ja rodun(robo,monster,goblin)
+-maailma joka koostuu satunnaisesti paloista, joilla neljä mahdollista kulkusuuntaa
+-arkkuja ja vihollisia, jotka avaamalla/tuhoamalla antavat pääsyn esineisiin
+-arkut ja viholliset satunnaisgeneroitu, mukaanlukien niiden omistamat esineet, perustuen tasoon ja pelaajan etäisyyteen tason alkupalasta.
+-jokaiseseen kenttään syntyy yksi vaikeampi vastustaja, jonka tuhottua, on mahdollista "ladata" eräs pelaajan hallussa oleva esine, joka ladattuna mahdollistaa pelin tallentamisen/uudelle tasolle etenemisen
 
 ## Teema ja yksityiskohdat
 
-Kun alustavat ominaisuudet alkavat olla paikoillaan, pohditaan tarkempaa suuntaa. Scifi,fantasia,mysteeri jne.
-Tarina, pelin lopullinen päämäärä, pistetaulukko(?)
+Ideana lopulta oli mahdollisimman avoin ja satunnainen roolipeli, eli sekoitus täysin erilaisia maailmoja ja hahmoja erilaisissa ulottuvuuksissa. Kyseistä sisältöä ei ole vielä luotu, mutta toiminnallisuus pitkälti löytyy kaikkeen luovaan.
 
-## Tarvittavia toiminnallisuuksia
+## Toiminnallisuuksia
 
-Aloitusvalikko, taukovalikko, ohjeet pelaamiseen. Mahdollisuus tallentaa peli, tarkkailla pelin sisäistä dataa.
-
-Aloitusvaikko OK
-Taukovalikko OK
-Ohjeet OK
+-valikot
+-inventaario managerointi
+-taistelut
+-pelin tallentaminen/tiedon lataaminen
+-satunnaiset vastustajat,tasot,esineet

@@ -1,36 +1,50 @@
 import os
 import pygame
 from inventories import Inventory
+from random import randint
 class Sprite:
+    species_stats = {"robo":[5,10,100],"goblin":[10,5,50],"monster":[30,0,30]}
     """Koodi spriteille. Mahdollistaa liikkumisen ruudulla, ja pelialueiden välillä
+    Pelaajan tietojen tallentamisen ja lataamisen
     """
-    def __init__(self,name:str,species=None,items:list=False,pos=False,level=[0,0]):
+    def __init__(self,name:str,species="chest",pos=False,items=1,level=[0,0],container=False):
         self.assets = os.path.dirname(os.path.abspath(__file__))
-        self.name = name
-        if species:
+        self.name=name
+        self.species=species
+        if not container:
             self.image = pygame.image.load(os.path.join(self.assets,'assets',species+".png"))
-            self.species = species
         else:
             self.image = pygame.image.load(os.path.join(self.assets,'assets',name+".png"))
-            self.species = name
         self.pos = pos
         if not pos:
-            self.pos = [640-self.image.get_width(),480-self.image.get_height()]
+            self.pos = [randint(100,1000),randint(100,800)]
         self.dimensions = (self.image.get_width(),self.image.get_height())
-        self.inventory = Inventory(100)
-        if items:
+        self.inventory = Inventory(100,container)
+        if items in [i for i in range(1000)]:
+            self.inventory.generate(items)
+        else:
             for i in items:
                 self.inventory.add_item(str(i),True)
-        self.max_health = 100
-        self.health = 100
+        if self.species in Sprite.species_stats:
+            self.base_damage = Sprite.species_stats[self.species][0]
+            self.base_armour = Sprite.species_stats[self.species][1]
+            self.max_health = Sprite.species_stats[self.species][2]
+            self.health = Sprite.species_stats[self.species][2]
+        else:
+            self.base_damage = 1
+            self.base_armour = 1
+            self.max_health = 1
+            self.health = 1
         self.damage = 0
         self.armour = 0
         self.speed = 4
         self.move = False
         self.target = [0,0]
-        self.level = level
-        self.base_damage = 1
-        self.base_armour = 1
+        self.level = level 
+        self.progress = 0
+        self.boss = "Boss"
+        if species != "Container":
+            self.update_species(self.species)
     def move_sprite(self):
         if self.move is False:
             return
@@ -84,7 +98,9 @@ class Sprite:
                 "speed":self.speed,
                 "base_damage":self.base_damage,
                 "base_armour":self.base_armour,
-                "species":self.species}
+                "species":self.species,
+                "progress":self.progress,
+                "boss":self.boss}
         return data
     def load_player(self,data):
         self.name = data["name"]
@@ -94,8 +110,8 @@ class Sprite:
         self.base_armour = data["base_armour"]
         self.species = data["species"]
         self.inventory.load_inventory(data)
-        self.update_image(data["species"])
-    def update_image(self,species):
+        self.update_species(data["species"])
+    def update_species(self,species):
         self.species = species
         self.image = pygame.image.load(os.path.join(self.assets,'assets',species+".png"))
         self.dimensions = (self.image.get_width(),self.image.get_height())
